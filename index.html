@@ -19,6 +19,15 @@
     }
 
     html, body {
+      margin: 0;
+      width: 100%;
+      min-height: 100%;
+      background: transparent;
+      font-family: Georgia, 'Times New Roman', serif;
+      overflow: hidden;
+    }
+
+    body {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -30,7 +39,7 @@
       width: 120px;
       height: 170px;
       overflow: hidden;
-      padding: 22px 10px 12px;
+      padding: 27px 10px 13px;
       background:
         radial-gradient(circle at 30% 20%, rgba(255,255,255,0.9), transparent 36%),
         linear-gradient(135deg, var(--paper-light), var(--paper));
@@ -77,21 +86,21 @@
     }
 
     .line {
-      width: 72%;
+      width: 68%;
       height: 1px;
-      margin: 12px auto 10px;
+      margin: 11px auto 11px;
       background: linear-gradient(90deg, transparent, var(--gold), transparent);
     }
 
     .date {
-      font-size: 44px;
+      font-size: 58px;
       line-height: 0.9;
       font-weight: 500;
       letter-spacing: -0.06em;
     }
 
     .weekday {
-      margin-top: 10px;
+      margin-top: 13px;
       font-size: 10px;
       letter-spacing: 0.34em;
       margin-left: 0.34em;
@@ -100,19 +109,21 @@
 
     .flower {
       position: absolute;
-      left: 8px;
-      bottom: 14px;
-      width: 34px;
-      height: 50px;
+      left: 36px;
+      bottom: 50px;
+      width: 31px;
+      height: 47px;
       opacity: 0.95;
+      transform: scale(0.72);
+      transform-origin: bottom left;
     }
 
     .stem {
       position: absolute;
-      left: 20px;
+      left: 16px;
       bottom: 0;
-      width: 1.5px;
-      height: 44px;
+      width: 1.4px;
+      height: 47px;
       background: #7f966e;
       border-radius: 99px;
       transform: rotate(2deg);
@@ -120,44 +131,47 @@
     }
 
     .stem.s2 {
-      left: 28px;
-      height: 30px;
-      transform: rotate(24deg);
+      left: 23px;
+      height: 34px;
+      transform: rotate(20deg);
     }
 
     .leaf, .petal, .center {
-      position: absolute;
-      border-radius: 999px;
+      left: 9px;
+      top: 9px;
+      width: 5px;
+      height: 5px;
+      background: #d69d36;
     }
 
     .leaf {
-      width: 17px;
-      height: 9px;
+      width: 10px;
+      height: 6px;
       background: var(--green);
       transform-origin: center;
     }
 
-    .leaf.l1 { left: 22px; bottom: 43px; transform: rotate(-34deg); }
-    .leaf.l2 { left: 42px; bottom: 62px; transform: rotate(28deg); }
-    .leaf.l3 { left: 53px; bottom: 33px; transform: rotate(-24deg); }
-    .leaf.l4 { left: 60px; bottom: 68px; transform: rotate(32deg); }
+    .leaf.l1 { left: 8px; bottom: 14px; transform: rotate(-30deg); }
+    .leaf.l2 { left: 17px; bottom: 24px; transform: rotate(24deg); }
+    .leaf.l3 { left: 24px; bottom: 10px; transform: rotate(-24deg); }
+    .leaf.l4 { left: 25px; bottom: 28px; transform: rotate(30deg); }
 
     .bloom {
       position: absolute;
-      width: 44px;
-      height: 44px;
+      width: 22px;
+      height: 22px;
     }
 
-    .bloom.b1 { left: 16px; top: 10px; }
-    .bloom.b2 { left: 48px; top: 48px; transform: scale(0.74); }
+    .bloom.b1 { left: 5px; top: 8px; }
+    .bloom.b2 { left: 22px; top: 31px; transform: scale(0.62); }
 
     .petal {
-      width: 16px;
-      height: 24px;
+      width: 8px;
+      height: 12px;
       background: #f1c94d;
-      left: 14px;
-      top: 4px;
-      transform-origin: 50% 18px;
+      left: 7px;
+      top: 2px;
+      transform-origin: 50% 9px;
       box-shadow: inset 0 0 0 1px rgba(149, 107, 21, 0.08);
     }
 
