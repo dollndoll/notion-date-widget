@@ -1,74 +1,592 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Notion Auto Date Widget</title>
-  <style>
-    :root {
-      --paper: #f6f0e5;
-      --paper-light: #fffaf0;
-      --brown: #4b3320;
-      --gold: #e6c35c;
-      --green: #9ab18e;
-      --tape: rgba(238, 218, 178, 0.82);
-    }
 
-    * {
-      box-sizing: border-box;
-    }
+460a9687-1021-418b-85c7-b05f7ae254e2.png
+1c9b23be-1935-41b4-9152-748da98406fe.png
+첫번째 사진처럼 스크롤 없이 영역을 고정하고 싶은데 두번째 사진처럼 나는 옆으로 길어져서 스크롤이 생겨. 
 
-    html, body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 6px;
-    }
+9c9d9752-fc5f-4833-bb03-a0a7ad9e6ea7.png
+노션 커버 이미지와 어울리는 오늘 날짜 위젯을 만들고 싶어
 
-    .widget {
-      position: relative;
-      width: 120px;
-      aspect-ratio: 1 / 1.15;
-      padding: 28px 12px 14px;
-      background:
-        radial-gradient(circle at 30% 20%, rgba(255,255,255,0.9), transparent 36%),
-        linear-gradient(135deg, var(--paper-light), var(--paper));
-      color: var(--brown);
-      border-radius: 5px 9px 6px 8px;
-      box-shadow: 0 18px 34px rgba(75, 51, 32, 0.14);
-      text-align: center;
-      isolation: isolate;
-    }
+생성된 이미지: 따뜻한 날짜 위젯 디자인 예시
 
-    .widget::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background-image:
-        linear-gradient(90deg, rgba(75,51,32,0.025) 1px, transparent 1px),
-        linear-gradient(0deg, rgba(75,51,32,0.02) 1px, transparent 1px);
-      background-size: 18px 18px;
-      opacity: 0.35;
-      z-index: -1;
-    }
 
-    .widget::after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: -8px;
-      width: 60px;
-      height: 18px;
-      transform: translateX(-50%) rotate(-1deg);
-      background: var(--tape);
-      border-radius: 3px;
-      box-shadow: 0 2px 5px rgba(75, 51, 32, 0.08);
-      backdrop-filter: blur(1px);
-    }
+편집
 
+
+생성된 이미지: 5월 18일 월요일 캘린더
+
+편집
+
+
+13432782-b47e-435f-aa28-f6c48224dcaf.png
+
+99c3df82-b18b-42ed-b4ec-a91f2bbee291.png
+
+잘 됐어요. 지금은 업로드 성공 상태예요. 다만 비밀번호 보호가 자동으로 켜진 임시 링크가 생성된 상태입니다.
+
+화면에 보이는 비밀번호:
+
+My-Drop-Site
+이걸 입력하면 열립니다.
+
+그런데 노션 임베드용으로는 비밀번호 없는 링크가 더 좋아요.
+(안 그러면 노션 안에서 비밀번호 화면이 뜰 수 있음)
+
+추천 방법:
+
+방법 1 (가장 쉬움)
+무료 계정 만들기 → 로그인 후 Deploy
+
+그러면:
+
+비밀번호 없음
+
+링크 영구 유지
+
+노션에서 바로 임베드 가능
+
+방법 2 (지금 바로 테스트)
+초록 링크 클릭
+
+비밀번호 My-Drop-Site 입력
+
+위젯 화면 뜨는지 확인
+
+링크 복사 → 노션 /embed
+
+다만 이건 1시간 후 만료돼요.
+
+그리고 한 가지 중요한 점:
+지금 업로드된 게 HTML 파일 자체인지, 아니면 폴더/다른 파일인지 확인해야 해요. 링크 눌렀을 때 우리 꽃 달력 위젯이 뜨나요? 아니면 빈 화면인가요?
+
+
+a9cd170d-1032-4af6-8b0c-55119ef4426f.png
+
+좋아요. 지금 상태 보니 사이트는 올라갔는데 HTML 위젯 파일이 아니라 다른 파일(이미지/잘못된 파일)이 업로드된 것 같아요. 그래서 미리보기가 비밀번호 화면으로 보이는 거예요.
+
+정확히 다시 하면 5분이면 끝나요.
+
+1단계: HTML 파일 저장 (중요)
+오른쪽 캔버스의 코드 전체를 복사해서 메모장에 붙여넣고:
+
+파일 → 다른 이름으로 저장
+
+파일명:
+
+index.html
+파일 형식:
+
+모든 파일(*.*)
+인코딩:
+
+UTF-8
+⚠️ 가장 중요:
+index.html.txt 가 되면 안 됩니다.
+
+2단계: Netlify에 다시 업로드
+지금 페이지 아래에 보이는:
+
+“Drag and drop your project folder here”
+
+여기에 index.html 파일 하나만 드래그 하세요.
+
+3단계: 링크 확인
+업로드 후 생성된 주소를 클릭하면
+
+❌ 비밀번호 화면이 아니라
+
+✅ 우리가 만든 꽃 달력 날짜 위젯(MAY 18 스타일) 이 떠야 정상입니다.
+
+4단계: 노션 넣기
+노션에서
+
+/embed
+→ 링크 붙여넣기
+
+→ 박스 크기만 조절
+
+그러면 매일 날짜 자동 변경됩니다.
+
+지금 헷갈릴 수 있으니, 메모장 저장 창(파일 저장 화면) 캡처 한 장 보내주면 html 저장 제대로 됐는지 바로 확인해줄게.
+
+
+8e6fa7b6-4311-4d9c-a8ca-1c6b0b4a5b5c.png
+
+cb8dca2d-60a2-41b2-86dc-ab126691b0c2.png
+
+이건 노션에서 보안 정책 때문에 임베드 차단된 상태예요.
+Netlify Drop 임시 링크가 X-Frame-Options 때문에 노션 안에서 안 열리는 경우가 있어요.
+
+해결은 2가지인데, 가장 쉬운 건 아래예요.
+
+방법 1 (추천, 3분)
+GitHub Pages로 올리기 → 노션 임베드 100% 잘 됨
+
+제가 지금 만든 위젯을 업로드용 파일(index.html) 형태로 정리해줄게요.
+그걸 그대로 GitHub Pages에 올리면 노션에서 바로 됩니다.
+
+방법 2 (더 쉬움)
+Indify + 커스텀 CSS 느낌으로 비슷하게 만들기
+→ 하지만 지금 만든 01번 디자인 그대로는 안 나옴.
+
+지금 원하는 건 01번 디자인 그대로 + 자동 날짜 변경이니까
+제가 노션 임베드 가능한 방식으로 다시 만들어서 “이 버튼만 누르면 됨” 수준으로 안내할게요.
+
+(지금 방식은 Netlify Drop 임시 배포라 노션이 막은 거예요. 사용자가 잘못한 거 아님.)
+
+
+GitHub Pages
+
+좋아요. GitHub Pages로 하면 됩니다.
+
+1단계
+GitHub 접속 → 로그인
+GitHub
+
+2단계
+오른쪽 위 + → New repository
+
+Repository name:
+
+notion-date-widget
+아래 선택:
+
+Public
+
+Add a README file 체크해도 됨
+
+→ Create repository
+
+3단계
+Add file → Create new file
+
+파일명:
+
+index.html
+오른쪽 캔버스에 있는 HTML 코드 전체 복사해서 붙여넣기
+
+아래 초록 버튼:
+Commit changes
+
+4단계
+상단 메뉴 Settings
+→ 왼쪽 Pages
+→ Source를 Deploy from a branch
+→ Branch: main / (root)
+→ Save
+
+5단계
+1~2분 기다리면 주소가 생겨요:
+
+https://아이디.github.io/notion-date-widget/
+이 주소를 노션에서:
+
+/embed
+붙여넣으면 됩니다.
+
+GitHub 저장소 만든 화면 캡처 보내주면, 다음 버튼 어디 누를지 바로 이어서 봐드릴게요.
+
+
+217f5fb3-680e-4332-830a-c065b9e990f6.png
+
+좋아요. 여기서 딱 2개만 하면 됩니다.
+
+1️⃣ Repository name 입력
+칸에 이렇게 쓰세요:
+
+notion-date-widget
+2️⃣ README 켜기 (중요)
+지금 Add README가 Off 인데
+이걸 On 으로 바꾸세요.
+(안 켜면 다음 단계에서 빈 저장소라 조금 헷갈릴 수 있어요)
+
+그 다음 아래 초록 버튼:
+
+Create repository
+
+누르세요.
+
+그러면 다음 화면에서 Add file → Create new file → index.html 만드는 단계 바로 이어서 알려드릴게요.
+
+
+5595ff75-ab1b-489b-a705-48e5b95f1752.png
+
+좋아요. 거의 끝났어요.
+
+지금 화면에서 맨 위 “Name your file…” 칸에 정확히 이렇게 입력하세요:
+
+index.html
+그 다음 큰 빈칸(“Enter file contents here”) 에 제가 만든 HTML 코드를 전체 붙여넣기 해야 합니다.
+
+문제는 코드가 길어서 복사하기 번거로우니, 더 쉬운 방법으로 갈게요.
+
+오른쪽 캔버스에 있는 “Notion Auto Date Widget 01” 문서에서:
+
+코드 전체 클릭
+
+Ctrl + A (전체 선택)
+
+Ctrl + C (복사)
+
+그리고 GitHub 빈칸에:
+
+Ctrl + V (붙여넣기)
+
+다 붙여넣으면 오른쪽 위 초록 버튼:
+
+Commit changes...
+
+누르세요.
+
+그 다음 바로 Settings → Pages 단계로 이어갈게요.
+
+
+Notion Auto Date Widget 01
+3f3e3c1d-bd20-4a22-977c-2073b3fc30d8.png
+
+Notion Auto Date Widget 01
+65a7a729-aea3-4807-bd11-d49426941335.png
+
+Notion Auto Date Widget 01
+46a4e302-421b-45d3-9d4f-fd335c311b63.png
+
+좋아요. 성공입니다. 🎉
+위에 “GitHub Pages source saved.” 가 떴으니 배포 시작된 상태예요.
+
+이제 1~3분 정도 기다린 뒤, 아래 주소를 새 탭에 열어보세요:
+
+날짜 위젯 열기
+
+정상이면:
+
+크림 메모지 카드
+
+MAY
+
+오늘 날짜
+
+MONDAY
+
+꽃 장식
+
+이 뜹니다.
+
+노션에 넣기
+노션에서 원하는 위치 클릭
+
+/embed 입력
+
+위 링크 붙여넣기
+
+크기 조절 (가로 조금 넓게)
+
+만약 404나 안 뜨면 아직 배포 중인 거라 2분 뒤 새로고침(F5) 하면 됩니다.
+
+한 번 열어보고 어떤 화면 나오는지 알려주세요.
+
+
+크기 가로 50% / 세로 50% 수준으로 축소해뒀어요.
+이제 노션에서 위젯 박스를 줄여도 꽃이랑 글씨 안 잘리고 비율 유지될 거예요.
+
+다음 단계:
+
+GitHub 저장소에서 index.html 다시 열기
+
+기존 코드 전체 삭제
+
+오른쪽 캔버스의 수정된 코드 전체 복사 → 붙여넣기
+
+Commit changes
+
+1~2분 후 노션 새로고침
+
+그러면 작은 사이즈로 바뀝니다.
+
+추가로 원하면:
+
+정사각형(아이콘형)
+
+가로형 얇은 위젯
+
+노션 컬럼에 딱 맞는 사이즈
+
+로 더 최적화해줄 수 있어요.
+
+
+Notion Auto Date Widget 01
+GitHub 저장소에서 index.html 다시 열기하려면 어디로 들어가?
+
+쉽게 따라오세요. 지금부터 딱 5번 클릭입니다.
+
+1️⃣ GitHub 저장소로 이동
+브라우저에서 이 주소 열기:
+
+notion-date-widget 저장소
+
+2️⃣ index.html 클릭
+왼쪽 파일 목록에서:
+
+index.html
+클릭
+
+(README.md 아래에 있을 거예요)
+
+3️⃣ 연필(Edit) 아이콘 클릭
+파일 화면 오른쪽 위에 ✏️ 연필 아이콘 있음
+→ 클릭
+
+4️⃣ 기존 코드 전체 삭제
+코드 안 아무 곳 클릭 →
+Ctrl + A (전체 선택) → Delete
+
+5️⃣ 새 코드 붙여넣기
+오른쪽 캔버스 Notion Auto Date Widget 01 코드 전체 복사
+→ GitHub에 Ctrl + V
+
+맨 아래 또는 오른쪽 위:
+
+Commit changes 누르기
+
+1~2분 후 노션 새로고침하면 작아진 위젯으로 바뀝니다.
+
+만약 index.html이 안 보이면 저장소 첫 화면 캡처 보여주세요. 어디 눌러야 할지 바로 표시해드릴게요.
+
+
+Notion Auto Date Widget 01
+b6cc792e-0ab0-40a7-93fc-875abb309362.png
+
+좋아요. 여기서는 초록 버튼 Commit changes 누르기만 하면 됩니다. ✅
+
+그 다음:
+
+1~2분 기다리기 (GitHub Pages 재배포 시간)
+
+노션 페이지 새로고침 (F5)
+
+위젯 확인
+
+안 바뀌면 브라우저 캐시 때문에 예전 게 보이는 경우가 있어서:
+
+Ctrl + Shift + R
+(강력 새로고침) 한 번 해보세요.
+
+이번 수정은 50% 축소 버전이라 노션에서 박스 줄여도 꽃/글씨 안 잘릴 가능성이 훨씬 높아요.
+
+
+Notion Auto Date Widget 01
+ce9e917c-05df-4ded-a939-516d25cd728a.png
+안작아지는데...
+
+원인 찾았어요. 전체 크기만 줄고 내부 요소(꽃/글씨 비율)가 안 같이 줄어서 잘린 상태예요.
+
+제가 노션 컬럼 폭에 맞는 작은 위젯 크기로 다시 수정해뒀어요. 이번엔 훨씬 작고 안 잘릴 거예요.
+
+다시 해야 하는 건 똑같습니다:
+
+GitHub index.html 열기
+
+✏️ Edit
+
+Ctrl + A → Delete
+
+오른쪽 캔버스 최신 코드 전체 복사 → 붙여넣기
+
+Commit changes
+
+그리고 2분 기다렸다가 노션에서:
+
+Ctrl + Shift + R
+강력 새로고침 해보세요.
+
+이번 버전은 노션 왼쪽 좁은 컬럼에서도 안 잘리게 맞춰놨어요.
+
+
+Notion Auto Date Widget 01
+b948c19d-d83d-4c5e-8ffd-ee0092fafc6d.png
+
+이제 왜 잘리는지 원인 잡았어요.
+
+꽃 줄기(stem) 크기가 원래 큰 상태(112px)로 남아 있어서 카드 밖으로 튀어나오고 있었어요. 그래서 노션에서 아래가 잘린 거예요.
+
+이번엔:
+
+카드 자체 높이 고정
+
+overflow: hidden 적용
+
+꽃/줄기/글씨 전부 같이 축소
+
+좁은 컬럼용 비율로 재조정
+
+해뒀어요.
+
+다시 한 번만:
+
+GitHub index.html → ✏️ Edit
+
+Ctrl + A → Delete
+
+오른쪽 캔버스 최신 코드 전체 복사 → 붙여넣기
+
+Commit changes
+
+1분 후 노션에서 Ctrl + Shift + R
+
+이번엔 아래 잘림 없이 딱 들어가게 맞춰놨어요.
+
+
+
+
+Notion Auto Date Widget 01
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
     .month {
-      font-size: 16px;
+      font-size: 12px;
       letter-spacing: 0.34em;
       margin-left: 0.34em;
       line-height: 1;
@@ -83,15 +601,15 @@
     }
 
     .date {
-      font-size: 56px;
+      font-size: 44px;
       line-height: 0.9;
       font-weight: 500;
       letter-spacing: -0.06em;
     }
 
     .weekday {
-      margin-top: 18px;
-      font-size: 14px;
+      margin-top: 10px;
+      font-size: 10px;
       letter-spacing: 0.34em;
       margin-left: 0.34em;
       line-height: 1;
@@ -99,19 +617,19 @@
 
     .flower {
       position: absolute;
-      left: 15px;
-      bottom: 20px;
-      width: 44px;
-      height: 65px;
+      left: 8px;
+      bottom: 14px;
+      width: 34px;
+      height: 50px;
       opacity: 0.95;
     }
 
     .stem {
       position: absolute;
-      left: 38px;
+      left: 20px;
       bottom: 0;
-      width: 2px;
-      height: 112px;
+      width: 1.5px;
+      height: 44px;
       background: #7f966e;
       border-radius: 99px;
       transform: rotate(2deg);
@@ -119,8 +637,8 @@
     }
 
     .stem.s2 {
-      left: 50px;
-      height: 82px;
+      left: 28px;
+      height: 30px;
       transform: rotate(24deg);
     }
 
@@ -214,3 +732,4 @@
   </script>
 </body>
 </html>
+
